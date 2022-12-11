@@ -1,0 +1,41 @@
+.bg {
+  width: 100%;
+}
+.add {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.input_title {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 40px;
+  text-align: left;
+  padding-left: 40px;
+}
+.input_comment {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 40px;
+}
+.input_author {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.button_logout {
+  border-color: #28546a;
+  background: #28546a;
+  text-transform: uppercase;
+  border-radius: 1px;
+  border-width: 2px;
+  color: #fff;
+}

@@ -26,3 +26,10 @@ export interface BookType {
   createAt: string;
   url: string;
 }
+
+export interface BookReqType {
+  title: string;
+  message: string;
+  author: string;
+  url: string;
+}

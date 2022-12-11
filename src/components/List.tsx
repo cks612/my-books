@@ -4,6 +4,7 @@ import { Layout, Button, Table } from "antd";
 import { BookType } from "../types";
 import Book from "./Book";
 import "./List.module.css";
+import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
 
@@ -16,14 +17,18 @@ interface ListProps {
 }
 
 const List: FC<ListProps> = ({ books, loading, getBooks, error, logout }) => {
-  const goAdd = () => {};
-  console.log(error);
+  const navigate = useNavigate();
+
+  const goAdd = () => {
+    navigate("/add");
+  };
+
   useEffect(() => {
     getBooks();
   }, [getBooks]);
 
   useEffect(() => {
-    if (error) {
+    if (error !== null) {
       logout();
     }
   }, [error, logout]);

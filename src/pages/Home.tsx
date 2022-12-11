@@ -1,14 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { RootState } from "../types";
-import { useSelector } from "react-redux";
 import ListContainer from "../containers/ListContainer";
+import useToken from "../hooks/useToken";
 
 export default function Home() {
   const navigate = useNavigate();
-  const token = useSelector<RootState, string | null>(
-    (state) => state.auth.token
-  );
+  const token = useToken();
+
   useEffect(() => {
     if (token === null) navigate("/signin");
   }, []);
