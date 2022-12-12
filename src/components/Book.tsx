@@ -10,9 +10,21 @@ import { Tooltip, Button } from "antd";
 import "./Book.module.css";
 import { BookType } from "../types";
 import moment from "moment";
-interface BookProps extends BookType {}
+interface BookProps extends BookType {
+  deleteBook: (bookId: number) => void;
+}
 
-const Book: FC<BookProps> = ({ bookId, title, author, createAt, url }) => {
+const Book: FC<BookProps> = ({
+  bookId,
+  title,
+  author,
+  createAt,
+  url,
+  deleteBook,
+}) => {
+  const handleDelete = () => {
+    deleteBook(bookId);
+  };
   return (
     <div className="book">
       <div className="title">
@@ -56,6 +68,7 @@ const Book: FC<BookProps> = ({ bookId, title, author, createAt, url }) => {
             danger
             icon={<DeleteOutlined />}
             className="button_delete"
+            onClick={handleDelete}
           />
         </Tooltip>
       </div>

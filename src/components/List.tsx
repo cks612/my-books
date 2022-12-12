@@ -14,9 +14,17 @@ interface ListProps {
   error: Error | null;
   getBooks: () => void;
   logout: () => void;
+  deleteBook: (bookId: number) => void;
 }
 
-const List: FC<ListProps> = ({ books, loading, getBooks, error, logout }) => {
+const List: FC<ListProps> = ({
+  books,
+  loading,
+  getBooks,
+  error,
+  logout,
+  deleteBook,
+}) => {
   const navigate = useNavigate();
 
   const goAdd = () => {
@@ -50,7 +58,9 @@ const List: FC<ListProps> = ({ books, loading, getBooks, error, logout }) => {
             title: "Book",
             dataIndex: "book",
             key: "book",
-            render: (text, record) => <Book {...record} />,
+            render: (text, record) => (
+              <Book {...record} deleteBook={deleteBook} />
+            ),
           },
         ]}
         loading={books === null || loading}
